@@ -1,0 +1,48 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.reactnativecommunity.webview">
+  <uses-permission android:name="android.permission.INTERNET" />
+
+<queries>
+<intent>
+<action android:name="android.intent.action.SEND"/>
+<data android:mimeType="*/*"/>
+</intent>
+
+<intent>
+<action  android:name="android.intent.action.VIEW"/>
+<data android:scheme="http"/>
+</intent>
+
+<intent>
+<action  android:name="android.intent.action.VIEW"/>
+<data android:scheme="https"/>
+</intent>
+
+<intent>
+<action  android:name="android.intent.action.VIEW"/>
+<data android:scheme="geo"/>
+</intent>
+
+<intent>
+<action  android:name="android.intent.action.VIEW"/>
+<data android:scheme="google.navigation"/>
+</intent>
+
+<intent>
+<action  android:name="android.intent.action.DAIL"/>
+</intent>
+</queries>
+
+  <application>
+    <provider
+      android:name=".RNCWebViewFileProvider"
+      android:authorities="${applicationId}.fileprovider"
+      android:exported="false"
+      android:grantUriPermissions="true">
+      <meta-data
+        android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/file_provider_paths" />
+    </provider>
+  </application>
+  </uses-permission>
+</manifest>
